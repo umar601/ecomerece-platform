@@ -8,10 +8,9 @@ const reviewSchema = new mongoose.Schema(
       trim: true,
     },
 
-    customerName: {
+    user: {
       type: String,
-      default:"Annonymous",
-      required: true,
+      default: "Anonymous",  
       trim: true,
     },
 

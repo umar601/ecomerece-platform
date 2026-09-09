@@ -5,49 +5,60 @@ const productSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
     },
 
     size: {
       type: String,
-      default: null
+      required: true,
+      default: null,
     },
-
+    description: {
+      type: String,
+      required: true,
+      default: null,
+    },
+    label: {
+      type: String,
+      enum: ["new", "sale", "sold out", "limited"],
+      default: "new",
+    },
     colour: {
       type: String,
-      default: null
+      required: true,
+      default: null,
     },
 
     price: {
       type: Number,
-      required: true
+      required: true,
     },
 
     discount: {
       type: Number,
-      default: 0
+      default: 0,
     },
 
     stock: {
       type: Number,
       required: true,
-      default: 0
+      default: 0,
     },
 
     category: {
       type: String,
-      required: true
+      required: true,
     },
 
     // Store image URLs
-    image: {
+    images: {
       type: Array,
-      default: []
-    }
+      default: [],
+    },
   },
   {
-    timestamps: true
-  }
+    timestamps: true,
+  },
 );
 
 const Product = mongoose.model("Product", productSchema);
